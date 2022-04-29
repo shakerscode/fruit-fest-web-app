@@ -1,0 +1,44 @@
+.nav-container{
+    width: 80%;
+    height: 60px;
+    margin: auto;
+}
+.nav-section{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+.logo-sec img{
+    width: 270px;
+}
+.nav-links{
+    display: flex;
+    align-items:center;
+    justify-content: center;
+}
+.icon{
+ width: 40px;
+ color: green;
+ cursor: pointer;
+ display: none;
+ margin: 2px;
+}
+ 
+@media screen and (max-width: 650px) {
+
+    .logo-sec img{
+        width: 150px;
+    }
+    .nav-links{
+        display: none;
+    }
+    .nav-links a {
+        display: block;
+        position: absolute;
+        top: 10px;
+    }
+    .icon{
+        display: block;
+    }
+}
