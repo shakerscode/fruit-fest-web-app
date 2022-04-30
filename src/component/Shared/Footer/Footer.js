@@ -1,6 +1,8 @@
 import React from 'react';
 import logo from '../../../Images/Fruit Fest Logo.png';
-import { } from '@heroicons/react/solid/package.json'
+import facebook from '../../../Images/icons/facebook.png';
+import twitter from '../../../Images/icons/twitter.png';
+import instagram from '../../../Images/icons/instagram.png';
 import './Footer.css' 
 
 const Footer = () => {
@@ -24,7 +26,9 @@ const Footer = () => {
                   </p>
               </div>
               <div className='footer-social'>
-                  
+                  <img src={facebook} alt="" />
+                  <img src={twitter} alt="" />
+                  <img src={instagram} alt="" />
               </div>
           </div>
         </div>
