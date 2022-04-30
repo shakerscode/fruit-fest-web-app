@@ -1,0 +1,31 @@
+.footer-section{
+    margin-top: 10rem;
+    background-color: rgb(0, 0, 0);
+}
+.footer-info{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    margin: auto;
+}
+.footer-img img{
+    width: 200px;
+}
+.footer-text{
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+.footer-text p{
+    cursor: pointer;
+    font-size: 15px;
+}
+.footer-text p:hover{
+    color: rgb(80, 181, 31);
+}
+
+.footer-credit{
+    color: white;
+}
