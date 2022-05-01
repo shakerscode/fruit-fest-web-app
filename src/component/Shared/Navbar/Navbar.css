@@ -31,21 +31,27 @@
 }
  
 @media screen and (max-width: 650px) {
-
+    .nav-container{
+        height: 30px;
+        position: sticky;
+        top: 0;
+        background-color: rgb(255, 255, 255);
+    }
     .logo-sec img{
         width: 150px;
+        height: 60px;
     }
     .nav-links{
         display: none;
     }
     .nav-links-mobile {
-        background-color: rgb(216, 255, 216);
+        background-color: rgb(227, 249, 227);
         display: block;
         position: absolute;
         text-align: center;
         width: 90%;
         padding: 10px;
-        top: 80px;
+        top: 95px;
         right: 10px;
     }
     .nav-links-mobile a{
