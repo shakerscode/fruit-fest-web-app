@@ -1,0 +1,16 @@
+.fruit-info{
+    padding: 20px;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
+}
+.fruit-info:hover{
+    border: 1px solid rgb(80, 181, 31);
+    background-color: rgb(183, 234, 183);
+}
+.fruit-info img{
+    background-color: rgb(189, 183, 183);
+    transition: all 0.6s ease-in-out;
+    
+}
+.fruit-info img:hover{
+    transform: scale(1.2);
+}

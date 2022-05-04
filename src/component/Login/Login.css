@@ -1,0 +1,44 @@
+.center-text{
+    text-align: center;
+}
+.login{
+    background-color: rgb(80, 250, 80);
+    width: 50%;
+    margin: 2rem auto;
+    padding: 20px;
+    /* text-align: center; */
+}
+.login-forum{
+    width: 100%;
+    margin: 2rem auto;
+
+}
+.login-forum input{
+    display: block;
+    width: 90%;
+    height: 40px;
+    font-size: 16px;
+    margin: 1rem auto;
+    padding: 5px;
+    border:none;
+    outline: none;
+}
+
+#input-label{
+    text-align: left;
+   margin-left: 30px;
+   font-size: 18px;
+}
+#login-btn{
+    width: 20%;
+}
+#login-btn:hover{
+    border: 1px solid white;
+}
+.already-account{
+    cursor: pointer;
+    font-size: 16px;
+}
+.reset-pass{
+    cursor: pointer;
+}

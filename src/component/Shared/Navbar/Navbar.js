@@ -15,7 +15,7 @@ const Navbar = () => {
                 <div>
                     <nav className={toggle ? 'nav-links-mobile' : 'nav-links'}>
                         <CustomLink to="/home">Home</CustomLink>
-                        <CustomLink to="/manage-items">Manage Items</CustomLink>
+                        <CustomLink to="/manage-inventory">Manage Items</CustomLink>
                         <CustomLink to="/add-item">Add Item</CustomLink>
                         <CustomLink to="/my-item">My Items</CustomLink>
                         <CustomLink to="/blog">Blog</CustomLink>
