@@ -1,5 +1,5 @@
-import React from 'react';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import React, { useState } from 'react';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
@@ -9,33 +9,39 @@ import './Login.css'
 
 const Login = () => {
     const navigate = useNavigate()
+    const [email, setEmail] = useState('')
+    const [errors, setErrors] = useState('')
     const [
         signInWithEmailAndPassword,
         user,
         loading,
         error,
-      ] = useSignInWithEmailAndPassword(auth);
+    ] = useSignInWithEmailAndPassword(auth);
+
+    const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth);
 
     // login
     const login = e => {
         e.preventDefault();
         const email = e.target.email.value;
+        setEmail(email)
         const password = e.target.password.value;
         signInWithEmailAndPassword(email, password);
+        e.target.reset();
     }
 
     if (error) {
         console.log(error.message);
-      }
+    }
 
-      if (loading) {
+    if (loading) {
         return <Loading></Loading>;
-      }
-      if (user) {
+    }
+    if (user) {
         navigate('/')
-        toast.success('Successfully logged in.', {id: 'Login successful!'})
-        return; 
-      }
+        toast.success('Successfully logged in.', { id: 'Login successful!' })
+        return;
+    }
 
     return (
         <div className='login'>
@@ -44,15 +50,26 @@ const Login = () => {
             <div className='login-sec'>
                 <form onSubmit={login} className='login-forum'>
                     <label id='input-label'>Email</label>
-                    <input name='email' type="text" placeholder='Email' />
+                    <input name='email' type="text" placeholder='Email' required/>
                     <label id='input-label'>Password</label>
-                    <input name='password' type="password" placeholder='Password' />
-                    <p id='input-label'>Forget password? <b className='reset-pass'><i><u>Reset</u></i></b></p>
+                    <input name='password' type="password" placeholder='Password' required/>
+                    <p onClick={async () => {
+                        if(email){
+                            await sendPasswordResetEmail(email);
+                            toast.success('Sent verification email', { id: 'Sent email successful!' });
+                            setErrors('')
+                        }else{
+                            setErrors('Please enter a valid email.')
+                        }
+                    }} className='reset-pass' id='input-label'><u>Forget password? Reset</u></p>
                     {
                         error?.message?.includes('auth/wrong-password') && <p className='errors'>Wrong password</p>
                     }
                     {
                         error?.message?.includes('user-not-found') && <p className='errors'>Invalid user</p>
+                    }
+                    {
+                        errors && <p className='errors'>{errors}</p>
                     }
                     <input className='btn' id='login-btn' type="submit" value="Login" />
                 </form>
