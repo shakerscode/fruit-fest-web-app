@@ -8,6 +8,7 @@ import ManageInv from './component/ManageInv/ManageInv';
 import Login from './component/Login/Login';
 import SignUp from './component/SignUp/SignUp';
 import SingleInven from './component/SingleInven/SingleInven';
+import { Toaster } from 'react-hot-toast';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
          <Route path='/signup' element={<SignUp></SignUp>}></Route>
        </Routes>
        <Footer></Footer>
+       <Toaster />
     </div>
   );
 }

@@ -3,9 +3,14 @@ import logo from '../../../Images/Fruit Fest Logo.png';
 import CustomLink from '../../CustomLink/CustomLink';
 import { MenuAlt3Icon, XIcon } from '@heroicons/react/solid'
 import './Navbar.css'
+import auth from '../../../firebase.init';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { signOut } from 'firebase/auth';
+import toast from 'react-hot-toast';
 
 const Navbar = () => {
     const [toggle, setToggle] = useState(false)
+    const [user] = useAuthState(auth);
     return (
         <div className='nav-container'>
             <div className='nav-section'>
@@ -20,8 +25,15 @@ const Navbar = () => {
                         <CustomLink to="/my-item">My Items</CustomLink>
                         <CustomLink to="/blog">Blog</CustomLink>
                         <CustomLink to="/contact-us">Contact Us</CustomLink>
-                        <CustomLink to="/log-out">Log Out</CustomLink>
-                        <CustomLink to="/login">Login</CustomLink>
+                        {
+                            user ?
+                                <CustomLink onClick={() => {
+                                    signOut(auth)
+                                    toast.success('Logout successful', {id: 'successful.'})
+                                }} to="/login">Log Out</CustomLink>
+                                :
+                                <CustomLink to="/login">Login</CustomLink>
+                        }
                     </nav>
                     <div onClick={() => setToggle(!toggle)}>
                         {
