@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useSendEmailVerification } from 'react-firebase-hooks/auth';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
@@ -16,6 +16,7 @@ const SignUp = () => {
         loading,
         error,
     ] = useCreateUserWithEmailAndPassword(auth);
+    const [sendEmailVerification, sending, emailVerificationError] = useSendEmailVerification(auth);
 
     const signUp = e => {
         e.preventDefault();
@@ -32,19 +33,29 @@ const SignUp = () => {
         }
         if (email && password === confPassword) {
             createUserWithEmailAndPassword(email, password);
+            
+            // toast.success('Email verification link sent')
         }
+        
 
     }
 
     if (error) {
         console.log(error);
     }
-    
+    if(emailVerificationError){
+        console.log(emailVerificationError.message);
+    }
+    if (sending) {
+        return toast.success('Email verification link sent', {id: 'Verification link sent'});
+    }
     if (user) {
+        sendEmailVerification();
         navigate('/')
         toast.success('Login successful!', { id: 'Successful!' })
         return;
     }
+    
     return (
         <div className='signUp'>
             <h1 className='center-text'>SignUp</h1>
