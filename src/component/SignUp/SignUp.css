@@ -4,3 +4,23 @@
     margin: 2rem auto;
     padding: 20px;
 }
+@media screen and (max-width: 650px) {
+    .signUp{
+        width: 80%;
+    }
+    .login-forum{
+        width: 100%;
+    }
+    .login-forum input{
+        font-size: 13px;
+        width: 95%;
+        height: 30px;
+        padding: 5px;
+    }
+    #input-label{
+        font-size: 13px;
+        margin-left: 4px;
+        
+    }
+    
+}

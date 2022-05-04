@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import SocialLogin from '../Shared/SocialLogin/SocialLogin';
 import './SignUp.css'
 
 const SignUp = () => {
@@ -11,6 +12,7 @@ const SignUp = () => {
     return (
         <div className='signUp'>
             <h1 className='center-text'>SignUp</h1>
+            <hr />
             <div className='SignUp-sec'>
                 <form onSubmit={signUp} className='login-forum'>
                     <label id='input-label'>Email</label>
@@ -27,9 +29,10 @@ const SignUp = () => {
 
                 </label>
                 <div className='center-text'>
-                    <p>Already have an account? <b onClick={() => navigate('/login')} className='already-account'>SignUp</b></p>
+                    <p>Already have an account? <b onClick={() => navigate('/login')} className='already-account'>Login</b></p>
                 </div>
             </div>
+            <SocialLogin></SocialLogin>
 
         </div>
     );

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import SocialLogin from '../Shared/SocialLogin/SocialLogin';
 import './Login.css'
 
 const Login = () => {
@@ -13,6 +14,7 @@ const Login = () => {
     return (
         <div className='login'>
             <h1 className='center-text'>Login</h1>
+            <hr />
             <div className='login-sec'>
                 <form onSubmit={login} className='login-forum'>
                     <label id='input-label'>Email</label>
@@ -30,7 +32,7 @@ const Login = () => {
                     <p>Don't have an account? <b onClick={() => navigate('/signup')} className='already-account'>SignUp</b></p>
                 </div>
             </div>
-
+            <SocialLogin></SocialLogin>
         </div>
     );
 };

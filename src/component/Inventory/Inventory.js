@@ -13,7 +13,7 @@ const Inventory = ({ fruit }) => {
             <p>{quantity}</p>
             <p>{supplierName}</p>
             <p>{shortDisc}</p>
-            <button className='btn' onClick={() => navigate(`/inventory/${id}`)}>click here</button>
+            <button className='btn' onClick={() => navigate(`/inventory/${id}`)}>Manage</button>
         </div>
     );
 };

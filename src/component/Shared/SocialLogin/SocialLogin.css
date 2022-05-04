@@ -1,0 +1,51 @@
+.or-text{
+    border-bottom: 1px solid white;
+    width: 20%;
+    margin: 1rem auto;
+    padding: 10px;
+    text-align: center;
+}
+.social-methods{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: -15px;
+    
+}
+.login-methods{
+    background-color: white;
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    margin-left:15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+.login-methods:hover{
+    background-color: rgb(211, 255, 205);
+    border: 1px solid white;
+}
+.login-methods p {
+    font-size: 15px;
+}
+
+@media screen  and (max-width: 650px) {
+    .social-methods{
+        display: block;
+        margin: auto;
+    }
+    .login-methods{
+        width: 90%;
+        margin-bottom: 20px;
+        margin-left:  auto;
+        margin-right: auto;
+        padding: 5px;
+        justify-content: space-evenly;
+    }
+    .login-methods img{
+        width: 30px;
+    }
+}
