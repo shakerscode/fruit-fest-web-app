@@ -10,6 +10,7 @@ import SignUp from './component/SignUp/SignUp';
 import SingleInven from './component/SingleInven/SingleInven';
 import { Toaster } from 'react-hot-toast';
 
+
 function App() {
   return (
     <div>

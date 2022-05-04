@@ -27,10 +27,13 @@ const Navbar = () => {
                         <CustomLink to="/contact-us">Contact Us</CustomLink>
                         {
                             user ?
+                                <>
                                 <CustomLink onClick={() => {
                                     signOut(auth)
                                     toast.success('Logout successful', {id: 'successful.'})
                                 }} to="/login">Log Out</CustomLink>
+                                <p>{user.displayName}</p>
+                                </>
                                 :
                                 <CustomLink to="/login">Login</CustomLink>
                         }
