@@ -7,6 +7,7 @@ import auth from '../../../firebase.init';
 import { useSignInWithGithub, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
+import Loading from '../Loading/Loading';
 
 const SocialLogin = () => {
     const navigate = useNavigate();
@@ -18,7 +19,7 @@ const SocialLogin = () => {
     }
 
     if (loading || gitHubLoading) {
-        return toast('Loading....', { id: 'Loading! Please wait.' })
+        return <Loading></Loading>
     }
     if (error || gitHubError) {
         toast.error('Something went wrong!', { id: 'An error occur!' })

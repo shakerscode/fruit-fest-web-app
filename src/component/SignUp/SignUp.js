@@ -17,25 +17,6 @@ const SignUp = () => {
         error,
     ] = useCreateUserWithEmailAndPassword(auth);
 
-    // if (error) {
-    //     if (error.message.includes('auth/email-already-in-use')) {
-    //         setErrors('email-already-in-use');
-    //         console.log(error.message);
-
-    //     }
-
-    // }
-    // if (loading) {
-    //     return <Loading></Loading>
-    //     // return toast('Loading', { id: 'Loading' })
-
-    // }
-
-    // if (user) {
-    //     navigate('/')
-    //     toast.success('Login successful!', { id: 'Successful!' })
-    // }
-
     const signUp = e => {
         e.preventDefault();
         const email = e.target.email.value;
@@ -54,24 +35,15 @@ const SignUp = () => {
         }
 
     }
+
+    if (error) {
+        console.log(error);
+    }
     
-
-    if (error?.message?.includes('auth/email-already-in-use')) {
-        setErrors('email-already-in-use');
-        console.log(error?.message);
-
-    }
-
-
-    if (loading) {
-        return <Loading></Loading>
-        // return toast('Loading', { id: 'Loading' })
-
-    }
-
     if (user) {
         navigate('/')
         toast.success('Login successful!', { id: 'Successful!' })
+        return;
     }
     return (
         <div className='signUp'>
@@ -88,8 +60,11 @@ const SignUp = () => {
                     {
                         errors && <p className='errors'>{errors}</p>
                     }
+                    {
+                        error?.message?.includes('email-already-in-use') && <p className='errors'>Email is already in use</p>
+                    }
                     {/* <p id='input-label'>Forget password? <b className='reset-pass'><i><u>Reset</u></i></b></p> */}
-                    <input className='btn' id='login-btn' type="submit" value="SignUp" />
+                    <input className='btn' id='login-btn' type="submit" value={loading ? "Loading..." : "SignUp"} />
                 </form>
 
                 <label >
