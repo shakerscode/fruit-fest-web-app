@@ -3,13 +3,20 @@ import googleImg from '../../../Images/Social Icon/search.png'
 import facebookImg from '../../../Images/Social Icon/facebook.png'
 import githubImg from '../../../Images/Social Icon/github.png'
 import './SocialLogin.css';
+import auth from '../../../firebase.init';
+import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
 
 const SocialLogin = () => {
+    const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+
+    const googleLogin = () =>{
+        
+    }
     return (
         <div className='social-login'>
            <p className='or-text'><b>Or signin with</b></p>
             <div className='social-methods'>
-                <div className="login-methods">
+                <div onClick={googleLogin} className="login-methods">
                     <div>
                          <img src={googleImg} alt="" width={'40px'}/>
                     </div>
