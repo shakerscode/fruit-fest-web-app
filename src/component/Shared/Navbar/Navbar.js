@@ -20,19 +20,19 @@ const Navbar = () => {
                 <div>
                     <nav className={toggle ? 'nav-links-mobile' : 'nav-links'}>
                         <CustomLink to="/home">Home</CustomLink>
-                        <CustomLink to="/manage-inventory">Manage Items</CustomLink>
-                        <CustomLink to="/add-item">Add Item</CustomLink>
-                        <CustomLink to="/my-item">My Items</CustomLink>
                         <CustomLink to="/blog">Blog</CustomLink>
                         <CustomLink to="/contact-us">Contact Us</CustomLink>
+                        <CustomLink to="/manage-inventory">Manage Items</CustomLink>
                         {
                             user ?
                                 <>
-                                <CustomLink onClick={() => {
-                                    signOut(auth)
-                                    toast.success('Logout successful', {id: 'successful.'})
-                                }} to="/login">Log Out</CustomLink>
-                                <p>{user.displayName}</p>
+                                    <CustomLink to="/add-item">Add Item</CustomLink>
+                                    <CustomLink to="/my-item">My Items</CustomLink>
+                                    <CustomLink onClick={() => {
+                                        signOut(auth)
+                                        toast.success('Logout successful', { id: 'successful.' })
+                                    }} to="/login">Log Out</CustomLink>
+                                    <p>{user.displayName}</p>
                                 </>
                                 :
                                 <CustomLink to="/login">Login</CustomLink>

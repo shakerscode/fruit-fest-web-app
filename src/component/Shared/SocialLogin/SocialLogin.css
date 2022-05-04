@@ -25,7 +25,7 @@
     cursor: pointer;
 }
 .login-methods:hover{
-    background-color: rgb(211, 255, 205);
+    background-color: rgb(167, 247, 156);
     border: 1px solid white;
 }
 .login-methods p {
@@ -47,5 +47,8 @@
     }
     .login-methods img{
         width: 30px;
+    }
+    .or-text{
+        width: 50%;
     }
 }

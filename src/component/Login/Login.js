@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useAuthState, useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import toast from 'react-hot-toast';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading/Loading';
 import SocialLogin from '../Shared/SocialLogin/SocialLogin';
@@ -13,12 +13,14 @@ const Login = () => {
     const [errors, setErrors] = useState('')
     const [
         signInWithEmailAndPassword,
-        user,
         loading,
         error,
     ] = useSignInWithEmailAndPassword(auth);
 
     const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth);
+    const location = useLocation();
+    const [user] = useAuthState(auth);
+    const from = location.state?.from?.pathname || "/";
 
     // login
     const login = e => {
@@ -38,8 +40,8 @@ const Login = () => {
         return <Loading></Loading>;
     }
     if (user) {
-        navigate('/')
-        toast.success('Successfully logged in.', { id: 'Login successful!' })
+        // toast.success('Successfully logged in.', { id: 'Login successful!' })
+        navigate(from, { replace: true })
         return;
     }
 

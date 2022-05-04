@@ -9,6 +9,7 @@ import Login from './component/Login/Login';
 import SignUp from './component/SignUp/SignUp';
 import SingleInven from './component/SingleInven/SingleInven';
 import { Toaster } from 'react-hot-toast';
+import RequireAuth from './component/RequierAuth/RequierAuth';
 
 
 function App() {
@@ -18,8 +19,16 @@ function App() {
        <Routes>
          <Route path='/' element={<Home></Home>}></Route>
          <Route path='/home' element={<Home></Home>}></Route>
-         <Route path='/inventory/:id' element={<SingleInven></SingleInven>}></Route>
-         <Route path='/manage-inventory' element={<ManageInv></ManageInv>}></Route>
+         <Route path='/inventory/:id' element={
+           <RequireAuth>
+             <SingleInven></SingleInven>
+           </RequireAuth>
+         }></Route>
+         <Route path='/manage-inventory' element={
+           <RequireAuth>
+             <ManageInv></ManageInv>
+           </RequireAuth>
+         }></Route>
          <Route path='/login' element={<Login></Login>}></Route>
          <Route path='/signup' element={<SignUp></SignUp>}></Route>
        </Routes>

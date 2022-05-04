@@ -6,7 +6,8 @@
     display: block;
     position: relative;
     width: 10%;
-    margin: auto;
+    height: 300px;
+    margin:5rem auto;
   }
   .lds-hourglass:after {
     content: " ";
@@ -34,3 +35,10 @@
     }
   }
   
+  @media screen and (max-width: 650px) {
+    .lds-hourglass{
+      width: 100%;
+      height: 30px;
+      margin-left: 5rem;
+    }
+  }
