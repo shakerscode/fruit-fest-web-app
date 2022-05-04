@@ -4,6 +4,14 @@
     margin: 2rem auto;
     padding: 20px;
 }
+.errors{
+    text-align: center;
+    width: 60%;
+    margin: auto;
+    color: rgb(0, 0, 0);
+    background-color: rgb(251, 199, 199);
+    padding: 10px;
+}
 @media screen and (max-width: 650px) {
     .signUp{
         width: 80%;

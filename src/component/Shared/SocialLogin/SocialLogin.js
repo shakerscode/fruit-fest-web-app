@@ -26,7 +26,7 @@ const SocialLogin = () => {
     }
     if (user || gitHubUser) {
         toast.success('Successfully logged in.', { id: 'Successfully logged in.' })
-        return navigate('/')
+        return navigate('/');
     }
     return (
         <div className='social-login'>
