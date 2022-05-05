@@ -1,0 +1,34 @@
+.manage-all-fruits{
+    width: 80%;
+    margin:1rem auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px solid rgb(80, 180, 64);
+    cursor: pointer;
+}
+.manage-all-fruits:hover{
+    background-color: rgb(168, 255, 155);
+}
+.x-icon{
+    width: 40px;
+    color: rgb(80, 180, 64);  
+}
+.x-icon:hover{
+    color: rgb(90, 243, 90);
+    background-color: white;
+    border: 1px solid rgb(80, 180, 64);
+    border-radius: 50%;
+}
+@media screen and (max-width: 650px) {
+    .manage-all-fruits{
+        width: 90%;
+        font-size: 10px;
+    }
+    .manage-all-fruits img{
+        width: 30px;
+    }
+    .x-icon{
+        width: 25px;
+    }
+}

@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import './SingleInven.css'
 
 
 const SingleInven = () => {
+    const navigate = useNavigate()
     const { id } = useParams();
     const [fruit, setfruit] = useState([]);
+    const [getQuantity, setGetQuantity] = useState('')
     const { _id, image, name, price, quantity, supplierName, shortDisc } = fruit;
 
     useEffect(() => {
@@ -14,11 +16,19 @@ const SingleInven = () => {
             .then(res => res.json())
             .then(data => setfruit(data));
     }, [id])
+    
+    //remove quantity
+    let fruitQuantity = 0;
+    const removeQuantity = () =>{
+        const removedQuantity = quantity - 1;
+        console.log(removedQuantity);
+    }
 
-    const handleQuantity = e =>{
+    //set quantity
+    const handleQuantity = ()=> {
         console.log('connected');
-        const userQuantity = e.target.quantity.value;
-        console.log(userQuantity);
+        const userQuantity = parseInt(getQuantity);
+        console.log(userQuantity + quantity);
     }
     return (
         <div className='single-inventory'>
@@ -29,14 +39,15 @@ const SingleInven = () => {
                 <p>Quantity: {quantity}</p>
                 <p>Supplier: {supplierName}</p>
                 <p>{shortDisc}</p>
-                <button className='btn'>Deliver</button>
+                <button onClick={removeQuantity} className='btn'>Deliver</button>
             </div>
             <div className='restore-sec'>
                 <h1 className='restore-header'>Restock</h1>
                 <label id='input-label'>Quantity:</label>
-                <input type='number' name="quantity" id="" placeholder='Enter quantity' />
+                <input onChange={(e) => setGetQuantity(e.target.value)} type='number' name="quantity" placeholder='Enter quantity' />
                 <button onClick={handleQuantity} className="btn">Restock</button>
             </div>
+            <button onClick={()=> navigate('/manage-inventory')} className='btn'>Manage Inventories</button>
         </div>
     );
 };

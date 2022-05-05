@@ -9,7 +9,7 @@ import Inventory from '../Inventory/Inventory';
 import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
     const [fruits, setFruits] = useState([]);
 
     useEffect(()=>{
@@ -78,7 +78,7 @@ const Home = () => {
                 }
                 </div>
                 <div className='manage-inv-btn'>
-                    <button onClick={()=> navigate('/manage-inventory')} className='btn'>Manage Inventory</button>
+                    <button onClick={()=> navigate('/manage-inventory')} className='btn'>Manage Inventories</button>
                 </div>
             </div>
             

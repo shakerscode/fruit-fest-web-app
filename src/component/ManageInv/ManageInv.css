@@ -1,0 +1,26 @@
+
+
+.manage-header{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 90%;
+    margin: auto;
+    justify-content: flex-end;
+    align-items: center;
+    text-align: center;
+    border-bottom: 2px solid rgb(80, 180, 64);
+}
+.plus-icon{
+    width: 20px;
+    margin-left: 10px;
+    margin-bottom: -5px;
+}
+@media screen and (max-width: 650px) {
+    .manage-heading{
+        font-size: 17px;
+    }
+    .add-new-btn button{
+        margin-bottom: 10px;
+    }
+    
+}
