@@ -13,6 +13,7 @@ const Login = () => {
     const [errors, setErrors] = useState('')
     const [
         signInWithEmailAndPassword,
+        emailUser,
         loading,
         error,
     ] = useSignInWithEmailAndPassword(auth);
@@ -29,7 +30,7 @@ const Login = () => {
         setEmail(email)
         const password = e.target.password.value;
         signInWithEmailAndPassword(email, password);
-        e.target.reset();
+        // e.target.reset();
     }
 
     if (error) {
@@ -38,11 +39,12 @@ const Login = () => {
 
     if (loading) {
         return <Loading></Loading>;
+        
     }
-    if (user) {
+    if (user || emailUser) {
         // toast.success('Successfully logged in.', { id: 'Login successful!' })
-        navigate(from, { replace: true })
-        return;
+        return navigate(from, { replace: true })
+       
     }
 
     return (

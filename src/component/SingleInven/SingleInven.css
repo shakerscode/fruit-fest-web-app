@@ -1,0 +1,54 @@
+.single-inventory{
+    width: 70%;
+    margin: 3rem auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.inventory-fruit{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;;
+    padding: 20px;
+}
+.inventory-fruit img{
+    width: 200px;
+}
+.restore-sec{
+    padding: 20px;
+    background-color: rgb(214, 255, 219);
+}
+
+.restore-header{
+    font-size: 25px;
+    border-bottom: 1px solid rgb(80, 180, 64);
+    width: 50%;
+    margin: 2rem auto;
+}
+.restore-sec input{
+    display: block;
+    width: 80%;
+    height: 30px;
+    padding: 5px;
+    margin: 2px auto;
+    outline: none;
+    border: 1px solid rgb(80, 180, 64);
+}
+#input-label{
+    display: block;
+    text-align: start;
+    margin-bottom: 10px;
+    margin-right: 17px;
+    font-size: 14px;
+}
+
+@media screen and (max-width: 650px) {
+    .single-inventory{
+        grid-template-columns: 1fr;
+    }
+    .btn{
+        font-size: 13px;
+        padding: 5px 10px;
+    }
+}

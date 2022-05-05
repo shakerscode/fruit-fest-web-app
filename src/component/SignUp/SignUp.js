@@ -33,8 +33,6 @@ const SignUp = () => {
         }
         if (email && password === confPassword) {
             createUserWithEmailAndPassword(email, password);
-            
-            // toast.success('Email verification link sent')
         }
         
 

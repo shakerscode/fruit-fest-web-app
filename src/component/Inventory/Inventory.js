@@ -4,16 +4,16 @@ import './Inventory.css';
 
 const Inventory = ({ fruit }) => {
     const navigate = useNavigate();
-    const {id, name, price, quantity, supplierName, shortDisc, image } = fruit;
+    const {_id, name, price, quantity, supplierName, shortDisc, image } = fruit;
     return (
         <div className='fruit-info'>
             <img src={image} alt="" width={'250px'}/>
-            <h4>{name}</h4>
-            <p>{price}</p>
-            <p>{quantity}</p>
-            <p>{supplierName}</p>
+            <h4>Name: {name}</h4>
+            <p>Price: {price}$</p>
+            <p>Quantity: {quantity}</p>
+            <p>Supplier{supplierName}</p>
             <p>{shortDisc}</p>
-            <button className='btn' onClick={() => navigate(`/inventory/${id}`)}>Manage</button>
+            <button className='btn' onClick={() => navigate(`/inventory/${_id}`)}>Manage</button>
         </div>
     );
 };

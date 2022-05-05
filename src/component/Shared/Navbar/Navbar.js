@@ -7,10 +7,19 @@ import auth from '../../../firebase.init';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { signOut } from 'firebase/auth';
 import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
+    const navigate = useNavigate();
     const [toggle, setToggle] = useState(false)
     const [user] = useAuthState(auth);
+    
+
+    const signOutUser = ()=>{
+        signOut(auth);
+        navigate('/login')
+        toast.success('Logout successful', { id: 'successful.' })
+    }
     return (
         <div className='nav-container'>
             <div className='nav-section'>
@@ -20,18 +29,15 @@ const Navbar = () => {
                 <div>
                     <nav className={toggle ? 'nav-links-mobile' : 'nav-links'}>
                         <CustomLink to="/home">Home</CustomLink>
+                        <CustomLink to="/manage-inventory">Manage Items</CustomLink>
                         <CustomLink to="/blog">Blog</CustomLink>
                         <CustomLink to="/contact-us">Contact Us</CustomLink>
-                        <CustomLink to="/manage-inventory">Manage Items</CustomLink>
                         {
                             user ?
                                 <>
                                     <CustomLink to="/add-item">Add Item</CustomLink>
                                     <CustomLink to="/my-item">My Items</CustomLink>
-                                    <CustomLink onClick={() => {
-                                        signOut(auth)
-                                        toast.success('Logout successful', { id: 'successful.' })
-                                    }} to="/login">Log Out</CustomLink>
+                                    <CustomLink onClick={signOutUser} to="/login">Log Out</CustomLink>
                                     <p>{user.displayName}</p>
                                 </>
                                 :

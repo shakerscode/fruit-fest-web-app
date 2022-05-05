@@ -13,7 +13,7 @@ const Home = () => {
     const [fruits, setFruits] = useState([]);
 
     useEffect(()=>{
-        fetch('fakedata.json')
+        fetch('http://localhost:5000/fruit')
         .then(res=> res.json())
         .then(data => setFruits(data));
     },[])
@@ -74,7 +74,7 @@ const Home = () => {
                 <h1 className='about-header'>Our Inventory</h1>
                 <div className="inventory">
                 {
-                    fruits.slice(0, 6).map(fruit => <Inventory key={fruit.id} fruit={fruit}></Inventory>)
+                    fruits.slice(0, 6).map(fruit => <Inventory key={fruit._id} fruit={fruit}></Inventory>)
                 }
                 </div>
                 <div className='manage-inv-btn'>
