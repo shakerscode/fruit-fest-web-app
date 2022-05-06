@@ -11,6 +11,7 @@ import SingleInven from './component/SingleInven/SingleInven';
 import { Toaster } from 'react-hot-toast';
 import RequireAuth from './component/RequierAuth/RequierAuth';
 import AddItems from './component/AddItems/AddItems';
+import NotFound from './component/NotFound/NotFound';
 
 
 function App() {
@@ -20,7 +21,6 @@ function App() {
        <Routes>
          <Route path='/' element={<Home></Home>}></Route>
          <Route path='/home' element={<Home></Home>}></Route>
-         <Route path='/add-item' element={<AddItems></AddItems>}></Route>
          <Route path='/inventory/:id' element={
            <RequireAuth>
              <SingleInven></SingleInven>
@@ -31,8 +31,14 @@ function App() {
              <ManageInv></ManageInv>
            </RequireAuth>
          }></Route>
+         <Route path='/add-item' element={
+           <RequireAuth>
+             <AddItems></AddItems>
+           </RequireAuth>
+         }></Route>
          <Route path='/login' element={<Login></Login>}></Route>
          <Route path='/signup' element={<SignUp></SignUp>}></Route>
+         <Route path='*' element={<NotFound></NotFound>}></Route>
        </Routes>
        <Footer></Footer>
        <Toaster />

@@ -30,8 +30,8 @@ const Login = () => {
         setEmail(email)
         const password = e.target.password.value;
         signInWithEmailAndPassword(email, password);
-        // e.target.reset();
     }
+
 
     if (error) {
         console.log(error.message);
@@ -42,7 +42,6 @@ const Login = () => {
         
     }
     if (user || emailUser) {
-        // toast.success('Successfully logged in.', { id: 'Login successful!' })
         return navigate(from, { replace: true })
        
     }

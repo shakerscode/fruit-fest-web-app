@@ -6,29 +6,60 @@ import './SingleInven.css'
 const SingleInven = () => {
     const navigate = useNavigate()
     const { id } = useParams();
-    const [fruit, setfruit] = useState([]);
-    const [getQuantity, setGetQuantity] = useState('')
-    const { _id, image, name, price, quantity, supplierName, shortDisc } = fruit;
+    const [error, setError] = useState('')
+    const [fruit, setFruit] = useState([]);
+    const [getQuantity, setGetQuantity] = useState(0)
+    const { image, name, price, quantity, supplierName, shortDisc } = fruit;
 
     useEffect(() => {
-        const url = `http://localhost:5000/fruit/${id}`;
+        const url = `https://agile-fortress-99835.herokuapp.com/fruit/${id}`;
         fetch(url)
             .then(res => res.json())
-            .then(data => setfruit(data));
-    }, [id])
+            .then(data => setFruit(data));
+    }, [id, fruit])
     
     //remove quantity
-    let fruitQuantity = 0;
+
     const removeQuantity = () =>{
         const removedQuantity = quantity - 1;
         console.log(removedQuantity);
+        const url = `https://agile-fortress-99835.herokuapp.com/fruit/${id}`;
+        fetch(url, {
+            method: 'PUT',
+            headers : {
+                'content-type' : 'application/json'
+            },
+            body: JSON.stringify({removedQuantity})
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+        })
     }
 
     //set quantity
-    const handleQuantity = ()=> {
-        console.log('connected');
-        const userQuantity = parseInt(getQuantity);
-        console.log(userQuantity + quantity);
+    const handleAddQuantity = ()=> {
+        if( getQuantity > 0){
+            const newQuantity  = parseInt(getQuantity) + parseInt(quantity);
+        const url = `https://agile-fortress-99835.herokuapp.com/fruit/${id}`;
+        fetch(url, {
+            method: 'PUT',
+            headers : {
+                'content-type' : 'application/json'
+            },
+            body: JSON.stringify({newQuantity})
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+        })
+        setError('')
+        }else{
+            setError('Please enter a valid number')
+        }
+        
+
+ 
     }
     return (
         <div className='single-inventory'>
@@ -45,7 +76,10 @@ const SingleInven = () => {
                 <h1 className='restore-header'>Restock</h1>
                 <label id='input-label'>Quantity:</label>
                 <input onChange={(e) => setGetQuantity(e.target.value)} type='number' name="quantity" placeholder='Enter quantity' />
-                <button onClick={handleQuantity} className="btn">Restock</button>
+                {
+                        error ? <p className='errors'>{error}</p> : ''
+                    }
+                <button onClick={handleAddQuantity} className="btn">Restock</button>
             </div>
             <button onClick={()=> navigate('/manage-inventory')} className='btn'>Manage Inventories</button>
         </div>

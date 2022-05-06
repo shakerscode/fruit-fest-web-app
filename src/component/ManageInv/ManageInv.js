@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from 'react';
 import { PlusIcon } from '@heroicons/react/solid'
 import './ManageInv.css'
 import ManageFruit from '../ManageFruit/ManageFruit';
@@ -12,7 +11,7 @@ const ManageInv = () => {
     const handleItemDelete = (id) => {
         const proceed = window.confirm('Are you sure you want to delete this item?');
         if(proceed){
-            const url = `http://localhost:5000/fruit/${id}`;
+            const url = `https://agile-fortress-99835.herokuapp.com/fruit/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
