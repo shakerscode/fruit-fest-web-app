@@ -2,7 +2,7 @@ import React from 'react';
 import './ManageFruit.css'
 import { XCircleIcon } from '@heroicons/react/solid';
 
-const ManageFruit = ({fruit}) => {
+const ManageFruit = ({fruit, handleItemDelete}) => {
     const {_id, name, price, quantity, supplierName, image } = fruit;
     return (
         <div className='manage-all-fruits'>
@@ -12,7 +12,7 @@ const ManageFruit = ({fruit}) => {
             <p>{price}</p>
             <p>{quantity}</p>
             <p>{supplierName}</p>
-            <XCircleIcon className='x-icon'></XCircleIcon>
+            <XCircleIcon onClick={()=> handleItemDelete(_id)} className='x-icon'></XCircleIcon>
         </div>
     );
 };
