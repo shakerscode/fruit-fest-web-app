@@ -11,7 +11,7 @@ const Inventory = ({ fruit }) => {
             <h4>Name: {name}</h4>
             <p>Price: {price}$</p>
             <p>Quantity: {quantity}</p>
-            <p>Supplier{supplierName}</p>
+            <p>Supplier: {supplierName}</p>
             <p>{shortDisc}</p>
             <button className='btn' onClick={() => navigate(`/inventory/${_id}`)}>Manage</button>
         </div>

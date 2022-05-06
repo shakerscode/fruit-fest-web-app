@@ -1,0 +1,42 @@
+.add-item-sec{
+    width: 60%;
+    margin: 2rem auto;
+    text-align: center;
+    padding: 20px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.add-item-sec h1{
+    font-size: 25px;
+}
+.add-item-forum{
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+    /* align-items: center;
+    justify-content: center; */
+    text-align: center;
+}
+.add-item-forum input, textarea{
+    width: 100%;
+    height: 30px;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 1rem;
+    padding: 10px;
+    border: 1px solid rgb(80, 180, 64);
+}
+#submit-add-item{
+    display: inline-block;
+    text-align: center;
+    width: 30%;
+    margin: auto;
+    background-color: white;
+    border: 1px solid rgb(80, 180, 64);
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+#submit-add-item:hover{
+    background-color: rgb(80, 180, 64);
+    color: white;
+}

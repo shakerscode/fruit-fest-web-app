@@ -10,6 +10,7 @@ import SignUp from './component/SignUp/SignUp';
 import SingleInven from './component/SingleInven/SingleInven';
 import { Toaster } from 'react-hot-toast';
 import RequireAuth from './component/RequierAuth/RequierAuth';
+import AddItems from './component/AddItems/AddItems';
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
        <Routes>
          <Route path='/' element={<Home></Home>}></Route>
          <Route path='/home' element={<Home></Home>}></Route>
+         <Route path='/add-item' element={<AddItems></AddItems>}></Route>
          <Route path='/inventory/:id' element={
            <RequireAuth>
              <SingleInven></SingleInven>
