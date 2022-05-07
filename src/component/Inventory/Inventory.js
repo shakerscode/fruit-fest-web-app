@@ -4,7 +4,7 @@ import './Inventory.css';
 
 const Inventory = ({ fruit }) => {
     const navigate = useNavigate();
-    const {_id, name, price, quantity, supplierName, shortDisc, image } = fruit;
+    const {_id, name, price, quantity, supplierName, shortDesc, image } = fruit;
     return (
         <div className='fruit-info'>
             <img src={image} alt="" width={'250px'}/>
@@ -12,7 +12,7 @@ const Inventory = ({ fruit }) => {
             <p>Price: {price}$</p>
             <p>Quantity: {quantity}</p>
             <p>Supplier: {supplierName}</p>
-            <p>{shortDisc}</p>
+            <p>{shortDesc}</p>
             <button className='btn' onClick={() => navigate(`/inventory/${_id}`)}>Manage</button>
         </div>
     );

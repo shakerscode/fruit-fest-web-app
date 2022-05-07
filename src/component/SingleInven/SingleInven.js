@@ -9,7 +9,7 @@ const SingleInven = () => {
     const [error, setError] = useState('')
     const [fruit, setFruit] = useState([]);
     const [getQuantity, setGetQuantity] = useState(0)
-    const { image, name, price, quantity, supplierName, shortDisc } = fruit;
+    const { image, name, price, quantity, supplierName, shortDesc } = fruit;
 
     useEffect(() => {
         const url = `https://agile-fortress-99835.herokuapp.com/fruit/${id}`;
@@ -62,14 +62,16 @@ const SingleInven = () => {
  
     }
     return (
-        <div className='single-inventory'>
+        <div>
+            <h1 className='about-header'>Inventory</h1>
+            <div className='single-inventory'>
             <div className='inventory-fruit'>
                 <img src={image} alt="" width={'250px'} />
                 <h4>Name: {name}</h4>
                 <p>Price: {price}</p>
                 <p>Quantity: {quantity}</p>
                 <p>Supplier: {supplierName}</p>
-                <p>{shortDisc}</p>
+                <p>{shortDesc}</p>
                 <button onClick={removeQuantity} className='btn'>Deliver</button>
             </div>
             <div className='restore-sec'>
@@ -82,6 +84,7 @@ const SingleInven = () => {
                 <button onClick={handleAddQuantity} className="btn">Restock</button>
             </div>
             <button onClick={()=> navigate('/manage-inventory')} className='btn'>Manage Inventories</button>
+        </div>
         </div>
     );
 };

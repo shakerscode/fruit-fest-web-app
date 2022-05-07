@@ -3,7 +3,7 @@ import React from 'react';
 import './MyItem.css'
 
 const MyItem = ({userFruit, handleItemDelete}) => {
-const {_id, name, image, price, quantity, shortDisc} = userFruit;
+const {_id, name, image, price, quantity, shortDesc} = userFruit;
     return (
         <div className='my-item'>
             <img src={image} alt="" width={'50px'}/>
@@ -11,8 +11,8 @@ const {_id, name, image, price, quantity, shortDisc} = userFruit;
             <p><b>{_id}</b></p>
             <p>{price}$</p>
             <p>{quantity}</p>
-            <p>{shortDisc?.slice(0, 25)}...</p>
-            <button className='btn' id='cancel-btn' onClick={()=> handleItemDelete(_id)}>Cancel Items <XCircleIcon className='cancel-x-icon'></XCircleIcon></button>
+            <p>{shortDesc?.slice(0, 25)}...</p>
+            <button className='btn' id='cancel-btn' onClick={()=> handleItemDelete(_id)}>Cancel Item<XCircleIcon className='cancel-x-icon'></XCircleIcon></button>
         </div>
     );
 };

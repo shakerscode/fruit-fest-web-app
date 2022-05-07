@@ -2,10 +2,19 @@
     width: 80%;
     margin: 1rem auto;
     padding: 10px;
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-gap: 10px;
     justify-content: space-between;
     align-items: center;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    cursor: pointer;
+}
+.my-item p{
+text-align: center;
+}
+.my-item button{
+    font-size: 12px;
 }
 #cancel-btn{
     display: flex;
@@ -16,7 +25,7 @@
 }
 .cancel-x-icon{
     width: 20px;
-    margin-left: 5px;
+    margin-left: 15px;
 }
 @media screen and (max-width: 650px) {
 
