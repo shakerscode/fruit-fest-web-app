@@ -7,16 +7,19 @@ import { ArrowRightIcon } from '@heroicons/react/solid';
 import './Home.css';
 import Inventory from '../Inventory/Inventory';
 import { useNavigate } from 'react-router-dom';
+import Loading from '../Shared/Loading/Loading';
 
 const Home = () => {
     const navigate = useNavigate();
     const [fruits, setFruits] = useState([]);
 
-    useEffect(()=>{
+    useEffect(() => {
         fetch('https://agile-fortress-99835.herokuapp.com/fruit')
-        .then(res=> res.json())
-        .then(data => setFruits(data));
-    },[])
+            .then(res => res.json())
+            .then(data => {
+                setFruits(data)
+            });
+    }, [])
     return (
         <div className='home-section'>
             {/* Home Banner   */}
@@ -72,16 +75,21 @@ const Home = () => {
             {/* Home fruits info section end*/}
             <div className='home-inventory'>
                 <h1 className='about-header'>Our Inventory</h1>
-                <div className="inventory">
                 {
-                    fruits.slice(0, 6).map(fruit => <Inventory key={fruit._id} fruit={fruit}></Inventory>)
+                    fruits.length === 0 && <Loading></Loading>
                 }
-                </div>
+                {
+                    <div className="inventory">
+                        {
+                            fruits.slice(0, 6).map(fruit => <Inventory key={fruit._id} fruit={fruit}></Inventory>)
+                        }
+                    </div>
+                }
                 <div className='manage-inv-btn'>
-                    <button onClick={()=> navigate('/manage-inventory')} className='btn'>Manage Inventories</button>
+                    <button onClick={() => navigate('/manage-inventory')} className='btn'>Manage Inventories</button>
                 </div>
             </div>
-            
+
 
         </div>
     );

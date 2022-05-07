@@ -8,7 +8,7 @@ const AddItems = () => {
     const [user] = useAuthState(auth);
     const { register, handleSubmit } = useForm();
 
-    const onSubmit = (data) => {
+    const onSubmit = (data, e) => {
         console.log(data)
         if(data){
             const url = `https://agile-fortress-99835.herokuapp.com/fruit`;
@@ -24,7 +24,7 @@ const AddItems = () => {
             console.log(result)
         })
         }
-
+        e.target.reset()
     };
     return (
         <div className='add-item-sec'>

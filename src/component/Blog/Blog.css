@@ -1,0 +1,22 @@
+.blog-section{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+    width: 80%;
+    margin: 3rem auto;
+    pad: 10px;
+}
+.blog{
+    border: 1px solid rgb(80, 180, 64);
+    padding: 15px;
+    cursor: pointer;
+    transition: all 1s ease-in-out;
+}
+.blog:hover{
+    background-color: rgb(181, 252, 170);
+}
+@media screen and (max-width: 650px) {
+    .blog-section{
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,3 +1,13 @@
 .my-items{
     margin: 2rem auto;
 }
+.no-items-sec{
+    width: 70%;
+    margin: auto;
+    text-align: center;
+}
+.no-items{
+    text-align: center;
+    font-size: 20px;
+    color: grey;
+}
