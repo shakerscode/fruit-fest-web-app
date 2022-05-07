@@ -5,3 +5,12 @@
     text-align: center;
     padding: 30px;
 }
+@media screen and (max-width: '650px') {
+    .not-found-page{
+        width: 90%;
+    }
+    .not-found-page h1{
+        font-size: 13px;
+    }
+    
+}

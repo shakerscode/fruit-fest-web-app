@@ -40,3 +40,10 @@
     background-color: rgb(80, 180, 64);
     color: white;
 }
+@media screen and (max-width: 650px) {
+    .add-item-sec{
+        width: 80%;
+        margin: 2rem auto;
+    }
+    
+}

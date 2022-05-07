@@ -1,0 +1,32 @@
+.my-item{
+    width: 80%;
+    margin: 1rem auto;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+#cancel-btn{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+
+}
+.cancel-x-icon{
+    width: 20px;
+    margin-left: 5px;
+}
+@media screen and (max-width: 650px) {
+
+    .my-item{
+        width: 90%;
+        margin: 2rem auto;
+        display: block;
+        text-align: center;
+    }
+    .my-item img{
+        width: 100%;
+    }
+}
