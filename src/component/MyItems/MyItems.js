@@ -35,7 +35,7 @@ const handleItemDelete = (id) => {
 useEffect(()=>{
     const userItems = async() =>{
         const email = user.email;
-        const url = `http://localhost:5000/fruits?email=${email}`
+        const url = `https://agile-fortress-99835.herokuapp.com/fruits?email=${email}`
         const {data} = await axios.get(url,{
             headers: {
                 authorization: `Bearer ${localStorage.getItem('userToken')}`
