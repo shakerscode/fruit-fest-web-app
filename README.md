@@ -17,9 +17,7 @@ This my Live project [Fruit Fest](https://fruit-fest.web.app/).
 * Install firebase
 * Installed firebase github hook
 * Install react hot toast
-* Install mongodb and express js
-* Install heroku
-* Install jwt
+* Hosted in firebase
 * Used vanilla css
 * Full mobile responsive.
 * Custom spinner added

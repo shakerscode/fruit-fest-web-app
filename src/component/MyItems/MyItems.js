@@ -1,4 +1,5 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
@@ -7,11 +8,12 @@ import MyItem from './MyItem/MyItem';
 import './MyItems.css';
 
 const MyItems = () => {
-const [fruits, setFruits] = useFruits();
+// const [fruits, setFruits] = useFruits();
+const [items, setItems] = useState([])
 const [user] = useAuthState(auth);
 const navigate = useNavigate()
 
-const userFruits = fruits.filter(fruit => fruit.email === user.email)
+const userFruits = items.filter(item => item.email === user.email)
 
 const handleItemDelete = (id) => {
     const proceed = window.confirm('Are you sure you want to delete this item?');
@@ -23,12 +25,27 @@ const handleItemDelete = (id) => {
         .then(res=>res.json())
         .then(data => {
             console.log(data)
-            const remain = fruits.filter(fruit=> fruit._id !== id);
-            setFruits(remain)
+            const remain = items.filter(item=> item._id !== id);
+            setItems(remain)
         })
     }
 
 }
+
+useEffect(()=>{
+    const userItems = async() =>{
+        const email = user.email;
+        const url = `http://localhost:5000/fruits?email=${email}`
+        const {data} = await axios.get(url,{
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('userToken')}`
+            }
+        })
+        setItems(data);
+    }
+    userItems();
+    
+},[user])
 
     return (
         <div className='my-items'>
