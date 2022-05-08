@@ -1,6 +1,7 @@
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from "react-hook-form";
+import toast from 'react-hot-toast';
 import auth from '../../firebase.init';
 import './AddItems.css'
 
@@ -25,6 +26,7 @@ const AddItems = () => {
         })
         }
         e.target.reset()
+        toast.success('Successfully added item', {id: 'Successfully added'})
     };
     return (
         <div className='add-item-sec'>
