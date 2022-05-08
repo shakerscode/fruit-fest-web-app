@@ -57,9 +57,6 @@ const SingleInven = () => {
         } else {
             setError('Please enter a valid number')
         }
-
-
-
     }
     return (
         <div>

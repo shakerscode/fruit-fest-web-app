@@ -1,8 +1,33 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This my Live project [Fruit Fest](https://fruit-fest.web.app/).
 
-## Available Scripts
+## Some Introduction about this app
+>Fruit fest is a fruit management website like a warehouse. We stock fruits and sell them. Here you can add your items and and deliver it any time. You can change your stock. 
+
+## What I used to make this webapp.
+* Choose a design or set design
+* Choose a name. ## Fruit Fest 
+* Installed  react-app
+* Installed React Router dom 
+* Install heroIcon
+* Use Custom Link. 
+* Create a logo with Canva
+* Connect with git
+* Install firebase
+* Installed firebase github hook
+* Install react hot toast
+* Install mongodb and express js
+* Install heroku
+* Install jwt
+* Used vanilla css
+* Full mobile responsive.
+* Custom spinner added
+* Done. 
+
+
+
+
 
 In the project directory, you can run:
 
