@@ -1,0 +1,29 @@
+.contact-us{
+    width: 60%;
+    margin: 1rem auto;
+    background-color: #d3ffd3;
+    padding: 20px;
+    text-align: center;
+}
+.about-input{
+    display: block;
+    width: 90%;
+    margin: 1rem auto;
+    height: 40px;
+    font-size: 17px;
+    padding: 10px;
+    border: 1px solid rgb(80, 181, 31);
+}
+
+
+@media screen and (max-width: 650px) {
+    .contact-us{
+        width: 80%;
+        margin: 1rem auto;
+    }
+    .about-input{
+        font-size: 15px;
+        height: 30px;
+    }
+    
+}

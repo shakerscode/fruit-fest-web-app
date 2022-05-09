@@ -14,6 +14,7 @@ import AddItems from './component/AddItems/AddItems';
 import NotFound from './component/NotFound/NotFound';
 import MyItems from './component/MyItems/MyItems';
 import Blog from './component/Blog/Blog';
+import ContactUs from './component/ContactUs/ContactUs';
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
          <Route path='/' element={<Home></Home>}></Route>
          <Route path='/home' element={<Home></Home>}></Route>
          <Route path='/blog' element={<Blog></Blog>}></Route>
+         <Route path='/contact-us' element={<ContactUs></ContactUs>}></Route>
          <Route path='/inventory/:id' element={
            <RequireAuth>
              <SingleInven></SingleInven>
