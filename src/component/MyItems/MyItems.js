@@ -1,9 +1,9 @@
 import axios from 'axios';
+import { signOut } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
-import useFruits from '../hooks/useFruits';
 import MyItem from './MyItem/MyItem';
 import './MyItems.css';
 
@@ -13,7 +13,34 @@ const [items, setItems] = useState([])
 const [user] = useAuthState(auth);
 const navigate = useNavigate()
 
+
+useEffect(()=>{
+    
+    const userItems = async() =>{
+        const email = user.email;
+        const url = `https://agile-fortress-99835.herokuapp.com/myfruits?email=${email}`
+        try{
+            const {data} = await axios.get(url,{
+                headers: {
+                    authorization: `Bearer ${localStorage.getItem('userToken')}`
+                }
+            });
+            setItems(data);
+
+        }catch(error){
+            console.log(error.message);
+                if(error.response.status === 401 || error.response.status === 403){
+                    signOut(auth);
+                    navigate('/login')
+                }
+        }
+    }
+    userItems()
+    
+},[user, items])
+
 const userFruits = items.filter(item => item.email === user.email)
+
 
 const handleItemDelete = (id) => {
     const proceed = window.confirm('Are you sure you want to delete this item?');
@@ -32,20 +59,7 @@ const handleItemDelete = (id) => {
 
 }
 
-useEffect(()=>{
-    const userItems = async() =>{
-        const email = user.email;
-        const url = `https://agile-fortress-99835.herokuapp.com/fruits?email=${email}`
-        const {data} = await axios.get(url,{
-            headers: {
-                authorization: `Bearer ${localStorage.getItem('userToken')}`
-            }
-        })
-        setItems(data);
-    }
-    userItems();
-    
-},[user])
+
 
     return (
         <div className='my-items'>
