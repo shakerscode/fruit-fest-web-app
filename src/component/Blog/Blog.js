@@ -33,7 +33,9 @@ const Blog = () => {
                 </div>
                 <div className='blog'>
                     <h4>What is the purpose of jwt and how does it work?</h4>
-                    <p className='blog-answer'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere, consequuntur.</p>
+                    <p className='blog-answer'>JWT, or JSON Web Token is something that secure users information. By the help of jwt, we can authorize a user. If the user is unauthorized then we can force the user to go back. Unauthorized user can't able to see data. So for the security purpose, jwt is used.
+                        <br />
+                        It's worke proccess is not so hard. It just transmit information between two parties like server and client side.  It send a security token to the client side and the client side take to token and store it in localstorage. Then by api calling we can get the token from headers. Then we need to decode it and conditionally  we can check the user if he/she is authorized or not.</p>
                 </div>
             </div>
         </div >
