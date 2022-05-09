@@ -9,7 +9,7 @@
      cursor: pointer;
  }
 
- .btn:hover  {
+ .btn:hover {
      background-color: rgb(80, 181, 31);
      color: white;
  }
@@ -53,7 +53,8 @@
      transition: all 1s ease-in-out;
      cursor: pointer;
  }
- .about-img img:hover{
+
+ .about-img img:hover {
      transform: scale(1.1);
  }
 
@@ -61,7 +62,7 @@
      color: rgb(15, 15, 15);
  }
 
- 
+
 
  .btn-right-icon {
      width: 16px;
@@ -139,6 +140,27 @@
      margin: 2rem 0;
  }
 
+ .subscribe {
+     width: 60%;
+     background: #d3ffd3;
+     box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+         margin: 3rem auto;
+         text-align: center;
+         padding: 20px;
+ }
+ .subscribe-input{
+     display: block;
+     width: 90%;
+     margin: auto;
+     height: 40px;
+     font-size: 17px;
+     padding: 10px;
+     border: 1px solid rgb(80, 181, 31);
+ }
+ .subscribe-header{
+     font-size: 20px;
+     font-weight: 600;
+ }
 
  @media screen and (max-width: 650px) {
      .banner {
@@ -191,7 +213,7 @@
      }
 
      .organic-fruits-img {
-        width: 100%;
+         width: 100%;
          grid-row-start: 2;
          margin-top: 3rem;
      }
@@ -214,17 +236,30 @@
          margin: 0;
          grid-gap: 20px;
      }
-     .organic-fruits-info h1{
+
+     .organic-fruits-info h1 {
          font-size: 18px;
          margin: 1rem 0;
      }
+
      .organic-fruits-info button {
          font-size: 12px;
          padding: 8px 20px;
          margin-bottom: 1rem;
      }
 
-     .inventory{
+     .inventory {
          grid-template-columns: 1fr;
+     }
+     .subscribe{
+         width: 80%;
+         margin: auto;
+     }
+     .subscribe-header{
+         font-size: 16px;
+     }
+     .subscribe-input{
+         font-size: 15px;
+         height: 25px;
      }
  }

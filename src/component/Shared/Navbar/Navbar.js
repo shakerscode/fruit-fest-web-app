@@ -33,7 +33,6 @@ const Navbar = () => {
                         <CustomLink to="/add-item">Add Item</CustomLink>
                         <CustomLink to="/my-item">My Items</CustomLink>
                         <CustomLink to="/blog">Blog</CustomLink>
-                        <CustomLink to="/contact-us">Contact Us</CustomLink>
                         {
                             user ?
                                 <>
