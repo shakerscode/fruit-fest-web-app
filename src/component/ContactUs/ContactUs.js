@@ -9,7 +9,7 @@ const ContactUs = () => {
                     <input className='about-input' type="name" name="email" id="" placeholder='Enter your name' />
                     <input className='about-input' type="email" name="email" id="" placeholder='Enter your email' />
                     <textarea className='about-input' placeholder="What's on your mind?"></textarea>
-                    <button className='btn'>Subscribe Us</button>
+                    <button className='btn'>Submit</button>
                 </div>
         </div>
     );
