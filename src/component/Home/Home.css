@@ -151,7 +151,7 @@
  .subscribe-input{
      display: block;
      width: 90%;
-     margin: auto;
+     margin: 1rem auto;
      height: 40px;
      font-size: 17px;
      padding: 10px;

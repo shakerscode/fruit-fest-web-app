@@ -91,9 +91,10 @@ const Home = () => {
             </div>
 
             <div className="subscribe">
-                <h3 className='subscribe-header'>Subscribe us to get daily stock update</h3>
+                <h3 className='subscribe-header'>Report us a problem or question</h3>
                 <div>
                     <input className='subscribe-input' type="email" name="email" id="" placeholder='Enter your email' />
+                    <textarea className='subscribe-input' placeholder='Write your problem or question'></textarea>
                     <button className='btn'>Subscribe Us</button>
                 </div>
             </div>
